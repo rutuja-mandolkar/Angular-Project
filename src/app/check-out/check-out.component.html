@@ -1,0 +1,60 @@
+<h1>Shipping Detail</h1>
+<div class="container">
+<form [formGroup]="registerForm">
+  <div class="form-group">
+    <label>Name</label>
+    <input formControlName="name"  type="text" class="form-control" required>
+    <div class="alert alert-danger" *ngIf="registerForm.controls.name.touched && registerForm.controls.name.invalid">
+      <div *ngIf="registerForm.controls.name.errors.required">Name is required.</div>
+      <div *ngIf="registerForm.controls.name.errors.pattern">Invalid Name.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Address</label>
+    <input formControlName="addressLine1"  type="text" class="form-control" placeholder="Line 1" required>
+    <div class="alert alert-danger" *ngIf="registerForm.controls.addressLine1.touched && registerForm.controls.addressLine1.invalid">
+      <div *ngIf="registerForm.controls.addressLine1.errors">Address Line 1 is required.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label></label>
+    <input formControlName="addressLine2"  type="text" class="form-control" placeholder="Line 2" required>
+    <div class="alert alert-danger" *ngIf="registerForm.controls.addressLine2.touched && registerForm.controls.addressLine2.invalid">
+      <div *ngIf="registerForm.controls.addressLine2.errors">Address Line 2 is required.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>City</label>
+    <input formControlName="city"  type="text" class="form-control" required>
+    <div class="alert alert-danger" *ngIf="registerForm.controls.city.touched && registerForm.controls.city.invalid">
+      <div *ngIf="registerForm.controls.city.errors">City is required.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>State</label>
+    <input formControlName="state"  type="text" class="form-control" required>
+    <div class="alert alert-danger" *ngIf="registerForm.controls.state.touched && registerForm.controls.state.invalid">
+      <div *ngIf="registerForm.controls.state.errors">State is required.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Zip Code:</label>
+    <input formControlName="zipCode"  type="text" class="form-control" required>
+    <div class="alert alert-danger" *ngIf="registerForm.controls.zipCode.touched && registerForm.controls.zipCode.invalid">
+      <div *ngIf="registerForm.controls.zipCode.errors.required">Zip Code is required.</div>
+      <div *ngIf="registerForm.controls.zipCode.errors.maxlength ||registerForm.controls.zipCode.errors.minlength
+       || registerForm.controls.zipCode.errors.pattern ">Invalid Zip Code.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Phone Number:</label>
+    <input formControlName="phone"  type="text" class="form-control" required>
+    <div class="alert alert-danger" *ngIf="registerForm.controls.phone.touched && registerForm.controls.phone.invalid">
+      <div *ngIf="registerForm.controls.phone.errors.required">Phone Number is required.</div>
+      <div *ngIf="registerForm.controls.phone.errors.maxlength || registerForm.controls.phone.errors.minlength 
+      || registerForm.controls.phone.errors.pattern">Invalid Phone Number.</div>
+    </div>
+  </div>
+  <a *ngIf="registerForm.valid" class="btn btn-primary center" routerLink="/payment">Place Order</a>
+</form>
+</div>

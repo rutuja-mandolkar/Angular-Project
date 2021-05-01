@@ -1,0 +1,56 @@
+
+<h1>Shopping Cart</h1>
+<div class="container">
+<div class="row col-8">
+    <p>You have {{totalQuantity}} item in your shopping cart<p>  
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="width: 150px;"></th>
+                <th>Product</th>
+                <th class="text-center" style="width:230px">Quantity</th>
+                <th class="text-right" style="width:200px">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of cart">
+                <td class="right">
+                    <div [style.backgroundImage]="'url(' + item.chocolate.img + ')'" class="thumbnail"></div>
+                </td>
+                <td >
+                    {{item.chocolate.name}}
+                </td>
+                <td>
+                    
+                        <div class="row">
+                            <div class="col-2">
+                                <button class="btn btn-secondary btn-block" (click)="removeItem(item)">-</button>
+                            </div>
+                            <div class="col text-center">{{item.quantity}}</div>
+                            <div class="col-2">
+                                <button class="btn btn-secondary btn-block" (click)="addToCart(item.chocolate)">+ </button>
+                            </div>
+                        </div>
+                   
+                    
+                </td>
+                <td class="text-right">
+                    {{item.price|currency:"INR"}}
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th class="text-right">
+                    Total Price: {{totalPrice| currency:"INR"}}</th>
+            </tr>
+        </tfoot>
+    </table>
+    <div class="col text-center">
+    <a *ngIf="cart.length" class="btn btn-primary center" [routerLink]="['/check-out']">Check Out</a>
+    </div>
+</div>
+</div>

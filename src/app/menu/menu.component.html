@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-3">
+        <div class="list group">
+            <a class="list-group-item list-group-item-action list-group-item-light" routerLink='/menu' [class.active]="!category">All Categories</a>
+            <a class="list-group-item list-group-item-action list-group-item-light" routerLink='/menu' [queryParams]="{category:'milk'}" [class.active]="category==='white'">Milk Chocolate</a>
+            <a id="dark" class="list-group-item list-group-item-action list-group-item-light" routerLink='/menu' [queryParams]="{category:'dark'}" [class.active]="category==='dark'">Dark Chocolate </a>
+            <a id="nuts" class="list-group-item list-group-item-action list-group-item-light" routerLink='/menu' [queryParams]="{category:'nuts'}" [class.active]="category==='nuts'">Nuts Chocolate</a>
+        </div>
+    </div>
+    <div class="col">
+        <div class="text-center" style="height: 100px;">
+            <br>
+            <a routerLink='/cart'class="list-group-item-light"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" ></i></a>
+        <div class="badge badge-warning badge-pill" style="height:25px" >{{totalQuantity}}</div>
+        </div>
+        <div class="container row" >
+            <div class="col-md-4" *ngFor="let chocolate of filteredChocolates;let i=index">
+                <div class="card card-block">
+                    <img class="custom-image-style" img src="{{chocolate.img}}" height="300" width="200" style="margin-left: 60px;
+                  margin-top: 10px">
+                    <div class="book-desc-container row">
+                        <div>
+                            <p style="margin-left: 60px"><strong>{{chocolate.name}}: {{chocolate.price| currency:"INR"}}</strong></p>
+                            
+                        </div>
+                        <div class="offset-md-4 col-md-4">
+                            <button class="btn btn-primary btn-sm" (click)="addToCart(chocolate)">Add To Cart</button>
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+
+    
+
+

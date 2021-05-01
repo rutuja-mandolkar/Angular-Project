@@ -1,0 +1,101 @@
+<h1>Billing Detail</h1>
+<div class="container">
+<form [formGroup]="paymentForm">
+  <div class="form-group">
+    <label>Name</label>
+    <input formControlName="name"  type="text" class="form-control" required>
+    <div class="alert alert-danger" *ngIf="paymentForm.controls.name.touched && paymentForm.controls.name.invalid">
+      <div *ngIf="paymentForm.controls.name.errors.required">Name is required.</div>
+      <div *ngIf="paymentForm.controls.name.errors.pattern">Invalid Name.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Address</label>
+    <input formControlName="addressLine1"  type="text" class="form-control" placeholder="Line 1" required>
+    <div class="alert alert-danger" *ngIf="paymentForm.controls.addressLine1.touched && paymentForm.controls.addressLine1.invalid">
+      <div *ngIf="paymentForm.controls.addressLine1.errors">Address Line 1 is required.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label></label>
+    <input formControlName="addressLine2"  type="text" class="form-control" placeholder="Line 2" required>
+    <div class="alert alert-danger" *ngIf="paymentForm.controls.addressLine2.touched && paymentForm.controls.addressLine2.invalid">
+      <div *ngIf="paymentForm.controls.addressLine2.errors">Address Line 2 is required.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>City</label>
+    <input formControlName="city"  type="text" class="form-control" required>
+    <div class="alert alert-danger" *ngIf="paymentForm.controls.city.touched && paymentForm.controls.city.invalid">
+      <div *ngIf="paymentForm.controls.city.errors">City is required.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>State</label>
+    <input formControlName="state"  type="text" class="form-control" required>
+    <div class="alert alert-danger" *ngIf="paymentForm.controls.state.touched && paymentForm.controls.state.invalid">
+      <div *ngIf="paymentForm.controls.state.errors">State is required.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Zip Code:</label>
+    <input formControlName="zipCode"  type="text" class="form-control" required>
+    <div class="alert alert-danger" *ngIf="paymentForm.controls.zipCode.touched && paymentForm.controls.zipCode.invalid">
+      <div *ngIf="paymentForm.controls.zipCode.errors.required">Zip Code is required.</div>
+      <div *ngIf="paymentForm.controls.zipCode.errors.maxlength || paymentForm.controls.zipCode.errors.minlength
+       || paymentForm.controls.zipCode.errors.pattern ">Invalid Zip Code.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Phone Number:</label>
+    <input formControlName="phone"  type="text" class="form-control" required>
+    <div class="alert alert-danger" *ngIf="paymentForm.controls.phone.touched && paymentForm.controls.phone.invalid">
+      <div *ngIf="paymentForm.controls.phone.errors.required">Phone Number is required.</div>
+      <div *ngIf="paymentForm.controls.phone.errors.maxlength || paymentForm.controls.phone.errors.minlength
+       || paymentForm.controls.phone.errors.pattern ">Invalid Phone Number</div>
+    </div>
+    </div>
+  
+  <div class="form-group">
+    <label>Credit Card Type:</label>
+    <SELECT formControlName="creditCardType" class="form-control">
+    <OPTION value=VISA>Visa</OPTION>
+    <OPTION value=MSCD>Master Card</OPTION>
+    <OPTION value=SWIT>Switch</OPTION>
+    <OPTION value=SOLO>Solo</OPTION>
+    </SELECT>
+    
+  </div>
+  <div class="form-group">
+    <label>Credit Card Number:</label>
+    <input formControlName="creditCardNumber"  type="text" class="form-control">
+    <div class="alert alert-danger" *ngIf="paymentForm.controls.creditCardNumber.touched && paymentForm.controls.creditCardNumber.invalid">
+      <div *ngIf="paymentForm.controls.creditCardNumber.errors.required">Credit Card Number is required.</div>
+      <div *ngIf="paymentForm.controls.creditCardNumber.errors.maxlength || paymentForm.controls.creditCardNumber.errors.minlength
+       || paymentForm.controls.creditCardNumber.errors.pattern">Invalid Credit Card Number</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Credit Card Expiration Date:</label>
+    <input formControlName="cardExpDate"  type="date" class="form-control" >
+    <div class="alert alert-danger" *ngIf="paymentForm.controls.cardExpDate.touched && paymentForm.controls.cardExpDate.invalid">
+      <div *ngIf="paymentForm.controls.cardExpDate.errors">Expiration Date is required.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Security Code:</label>
+    <input formControlName="securityCode"  type="text" class="form-control" >
+    <div class="alert alert-danger" *ngIf="paymentForm.controls.securityCode.touched && paymentForm.controls.securityCode.invalid">
+      <div *ngIf="paymentForm.controls.securityCode.errors.required">Security Code is required.</div>
+      <div *ngIf="paymentForm.controls.securityCode.errors.minlength || paymentForm.controls.securityCode.errors.maxlength
+       || paymentForm.controls.securityCode.errors.pattern ">Invalid Security Code</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <a type="submit" *ngIf="paymentForm.valid" routerLink="/thankyou" class="btn btn-primary">Submit</a>
+  </div>
+  
+
+</form>
+</div>
+
